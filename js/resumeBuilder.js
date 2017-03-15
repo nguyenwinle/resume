@@ -10,7 +10,7 @@ var bio = {
         "linkedIn": "www.linkedin.com/nguyenle1990",
         "location" : "Sacramento, CA"
     },
-    "welcomeMessage":"Welcome to my page",
+    "welcomeMessage": "I am currently a Udacity student pursuing a career as a Full Stack Web Developer!",
     "skills": ['HTML5', 'CSS3', 'Javascript', 'jQuery', 'Python', 'SQL'],
     "pic": "images/me.jpg"
 };
@@ -40,18 +40,20 @@ var work = {
 var projects = {
     "projects": [{
         "title": "One-Page Parallax Website",
-        "description": "Designed a one page parallax website using HTML, CSS, Javascript, and Bootstrap and jQuery frameworks. The navigation allows for a smooth transition within the page."
-
+        "description": "Designed a one page parallax website using HTML, CSS, Javascript, and Bootstrap and jQuery frameworks. The navigation allows for a smooth transition within the page.",
+        "image": "http://placehold.it/200/200"
     },
 
     {
         "title": "Multi-User Tournament",
-        "description": "Built a multi-user blog application with a signup and login page that allows for registered users to add, edit, and delete their blog posts/comments and also, like other registered user’s blog posts. Application is running on google app engine using the following languages: HTML5, CSS3, Python, Jinja (python template engine inspired by Django’s templating system), and some SQL to store data. The Hashlib python module is implemented into the application using the sha256() constructor to secure usernames and passwords."
+        "description": "Built a multi-user blog application with a signup and login page that allows for registered users to add, edit, and delete their blog posts/comments and also, like other registered user’s blog posts. Application is running on google app engine using the following languages: HTML5, CSS3, Python, Jinja (python template engine inspired by Django’s templating system), and some SQL to store data. The Hashlib python module is implemented into the application using the sha256() constructor to secure usernames and passwords.",
+        "image": "http://placehold.it/200/200"
     },
 
     {
         "title": "Tournament Results",
-        "description": "Created a database schema using SQL, PostgreSQL, and Python modules that determines the winner of a Swiss Tournament. Learned how to use a virtual machine called Virtual Box that is required  to run the Swiss Tournament application."
+        "description": "Created a database schema using SQL, PostgreSQL, and Python modules that determines the winner of a Swiss Tournament. Learned how to use a virtual machine called Virtual Box that is required  to run the Swiss Tournament application.",
+                "image": "http://placehold.it/200/200"
 }
     ]
 };
@@ -75,12 +77,13 @@ var education = {
 };
 
 
+
+
 /* heading title */
 var formattedRole = HTMLheaderRole.replace('%data%', bio["role"]);
 $("#header").prepend(formattedRole);
 var formattedName = HTMLheaderName.replace('%data%', bio["name"]);
 $("#header").prepend(formattedName);
-
 
 
 var formattedMobile= HTMLmobile.replace('%data%', bio.contacts["mobile"]);
@@ -97,6 +100,22 @@ $("#topContacts").append(formattedBlog);
 
 var image = HTMLbioPic.replace('%data%', bio.pic);
 $('#header').append(image);
+
+var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+$("#header").append(formattedWelcomeMsg);
+
+/* footer contacts */
+var formattedMobile= HTMLmobile.replace('%data%', bio.contacts["mobile"]);
+$("#footerContacts").append(formattedMobile);
+
+var formattedEmail = HTMLemail.replace('%data%', bio.contacts["email"]);
+$("#footerContacts").append(formattedEmail);
+
+var formattedGithub = HTMLgithub.replace('%data%', bio.contacts["github"]);
+$("#footerContacts").append(formattedGithub);
+
+var formattedBlog =HTMLblog.replace('%data%', bio.contacts["website"]);
+$("#footerContacts").append(formattedBlog);
 
 
 projects.display = function() {
@@ -225,20 +244,28 @@ education.display();
 
 
 
-$('#main').append(internationalizeButton);
+// $('#main').append(internationalizeButton);
 
-$('#mapDiv').append(googleMap);
 
-var n = "Nguyen Le";
-function inName(name) {
 
-    var newname = name.split(" ");
-    var cap = newname[1].toUpperCase();
-    newname[0].join(cap);
+// var n = "Nguyen Le";
+// function inName(name) {
 
-    return newname;
+//     var newname = name.split(" ");
+//     var cap = newname[1].toUpperCase();
+//     newname[0].join(cap);
+
+//     return newname;
+// };
+
+// inName(n);
+
+var displayMap = function() {
+    // add #mapDiv
+    $("#mapDiv").append(googleMap);
 };
 
-inName(n);
+displayMap();
+
 
 
